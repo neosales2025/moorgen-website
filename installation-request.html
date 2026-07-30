@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation Request — Moorgen x WIIKTO</title>
+  <meta name="description" content="Request a professional Moorgen smart lock installation from WIIKTO India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="smooth-scroll.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <div id="loader"><div class="loader-mark"><span class="loader-word">moorgen</span><div class="loader-bar"></div></div></div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo-link">
+      <img src="images/moorgen-logo.png" alt="Moorgen Logo" class="logo">
+    </a>
+    <nav class="site-nav">
+      <a href="products.html">Products</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="installation-request.html" class="active">Installation</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </header>
+
+  <!-- ================= INSTALLATION REQUEST ================= -->
+  <section class="ir-hero">
+    <div class="ir-hero-grid">
+
+      <div class="ir-intro">
+        <p class="eyebrow">Support</p>
+        <h1 data-split>Request a professional installation</h1>
+        <p class="ir-sub">Share your details once — our team reviews the request and a certified installer reaches out to schedule your visit.</p>
+
+        <ol class="ir-steps">
+          <li>
+            <span class="ir-step-num">01</span>
+            <div>
+              <h4>Share your details</h4>
+              <p>Your model, serial number, and where you'd like it installed.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ir-step-num">02</span>
+            <div>
+              <h4>We review the request</h4>
+              <p>Our team verifies the details — usually within one business day.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ir-step-num">03</span>
+            <div>
+              <h4>An installer visits your home</h4>
+              <p>A certified WIIKTO technician contacts you to schedule the fit.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="ir-contact-fallback">
+          <p>Prefer to talk it through?</p>
+          <a href="tel:+919898246692">+91 98982 46692</a>
+          <a href="mailto:support.wiikto@gmail.com">support.wiikto@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="ir-form-wrap">
+        <div class="ir-form-card glass" data-reveal="up">
+          <form id="installForm" class="ir-form" novalidate>
+
+            <p class="ir-group-title">Your details</p>
+            <div class="ir-field full">
+              <label for="custName">Customer Name</label>
+              <input type="text" id="custName" name="custName" required>
+            </div>
+            <div class="ir-field full">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" required>
+            </div>
+
+            <p class="ir-group-title">Product details</p>
+            <div class="ir-field">
+              <label for="model">Model Number</label>
+              <select id="model" name="model" required>
+                <option value="" disabled selected>Select your model</option>
+                <option>T66 Zaha Hadid Collaboration</option>
+                <option>T9 Smart Lock</option>
+                <option>T5+ Smart Lock</option>
+                <option>T50 Smart Lock</option>
+                <option>T3+ Smart Lock</option>
+                <option>T53s Smart Lock</option>
+                <option>T2 Lever Lock</option>
+                <option>T23 Lever Lock</option>
+                <option>T17 Lever Lock</option>
+                <option>F102 Smart Lock</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="ir-field">
+              <label for="serial">Serial Number</label>
+              <input type="text" id="serial" name="serial" required>
+            </div>
+            <div class="ir-field full">
+              <label for="dealer">Dealer Name</label>
+              <input type="text" id="dealer" name="dealer" required>
+            </div>
+
+            <p class="ir-group-title">Installation address</p>
+            <div class="ir-field full">
+              <label for="addr1">Address Line 1</label>
+              <input type="text" id="addr1" name="addr1" required>
+            </div>
+            <div class="ir-field full">
+              <label for="addr2">Address Line 2</label>
+              <input type="text" id="addr2" name="addr2">
+            </div>
+            <div class="ir-field">
+              <label for="pin">Pin Code</label>
+              <input type="text" id="pin" name="pin" placeholder="6-digit PIN code" pattern="[0-9]{6}" maxlength="6" inputmode="numeric" required>
+            </div>
+            <div class="ir-field">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" required>
+            </div>
+            <div class="ir-field">
+              <label for="district">District</label>
+              <input type="text" id="district" name="district" required>
+            </div>
+            <div class="ir-field">
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" required>
+            </div>
+
+            <button type="submit" class="ir-submit" data-magnetic>Submit Request <span class="arrow">&rarr;</span></button>
+            <p class="ir-note" id="irNote"></p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">moorgen <em>&times;</em> wiikto</span>
+          <div class="footer-social-group">
+            <p class="footer-social-label">Follow us on</p>
+            <div class="footer-social">
+            <a href="https://www.facebook.com/share/1DtzUpLMfY/?mibextid=wwXIfr" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/moorgen_x_wiikto?igsh=cGJncml6ZGd2OGpv" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/in/moorgen-x-wiikto-india-3037223a9?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-ctas">
+          <a href="products.html" class="btn btn-outline-dark is-small" data-magnetic>Explore locks <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          <p>WIIKTO INDIA LLP — Rev. Sur No. 160, Plot No. 16/B, Riddhi Siddhi Park, Kotharia, Rajkot, Gujarat 360022</p>
+          <p>info@wiiktoindia.in &middot; +91 98982 46692</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var form = document.getElementById('installForm');
+    var note = document.getElementById('irNote');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var data = new FormData(form);
+      var get = function (key) { return (data.get(key) || '').toString().trim(); };
+
+      var subject = 'Installation Request — ' + get('custName') + ' (' + get('model') + ')';
+      var body =
+        'Customer Name: ' + get('custName') + '\n' +
+        'Mobile Number: ' + get('mobile') + '\n' +
+        'Model Number: ' + get('model') + '\n' +
+        'Serial Number: ' + get('serial') + '\n' +
+        'Dealer Name: ' + get('dealer') + '\n' +
+        'Address Line 1: ' + get('addr1') + '\n' +
+        'Address Line 2: ' + get('addr2') + '\n' +
+        'Pin Code: ' + get('pin') + '\n' +
+        'City: ' + get('city') + '\n' +
+        'District: ' + get('district') + '\n' +
+        'State: ' + get('state') + '\n';
+
+      var mailto = 'mailto:support.wiikto@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+
+      note.textContent = 'Opening your email app with the request filled in — please hit Send there to complete it. If nothing opened, email the details above directly to support.wiikto@gmail.com.';
+      note.classList.add('visible');
+    });
+  </script>
+
+</body>
+</html>

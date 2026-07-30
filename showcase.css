@@ -1,0 +1,276 @@
+/* =====================================================================
+   PRODUCT SHOWCASE — Apple-style pinned scroll story
+   Self-contained stylesheet. Reuses the site's existing design tokens
+   (colors, fonts, easing) declared in style.css's :root, so it inherits
+   the site's palette/typography automatically rather than redefining it.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   SECTION SHELL — full-bleed, white/black to match the rest of the site,
+   pinned by JS on desktop
+   --------------------------------------------------------------------- */
+.showcase {
+  position: relative;
+  background: var(--white);
+  color: var(--black);
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  max-width: 100vw;
+  min-height: 100vh;
+  border-top: 1px solid var(--ink-08);
+}
+
+.showcase-progress {
+  position: absolute; top: 0; left: 0; right: 0; height: 2px; z-index: 6;
+  background: var(--ink-08);
+}
+.showcase-progress-fill {
+  display: block; height: 100%; width: 100%;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.showcase-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  grid-template-areas: "stage info";
+  align-items: center;
+  gap: 400px;
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 0 clamp(24px, 4vw, 70px);
+}
+
+.showcase-eyebrow-wrap { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); z-index: 3; }
+
+/* ---------------------------------------------------------------------
+   FLOATING DOCK — macOS-dock-style thumbnail row, pinned to the bottom
+   of the section. Base size is fixed for every icon; a mousemove loop in
+   showcase.js drives the actual scale/lift per icon (see below), so CSS
+   here only owns the resting look, hover/active chrome, and the label
+   tooltip — never the live transform, to avoid the two fighting.
+   --------------------------------------------------------------------- */
+.showcase-dock {
+  position: absolute;
+  left: 0; right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  bottom: 34px;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  padding: 10px 16px 12px;
+  max-width: calc(100vw - 48px);
+  background: rgba(255,255,255,0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--ink-08);
+  border-radius: 22px;
+  box-shadow: 0 20px 50px -18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.showcase-thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 54px; height: 54px;
+  border-radius: 14px;
+  background: var(--ink-05);
+  border: 1px solid var(--ink-12);
+  box-shadow: 0 10px 18px -10px rgba(0,0,0,0.35);
+  padding: 0;
+  cursor: pointer;
+  transform-origin: bottom center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  will-change: transform;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.showcase-thumb:active { transform: scale(0.94); }
+.showcase-thumb.is-active {
+  border-color: var(--black);
+  box-shadow: 0 0 0 1px var(--black), 0 14px 26px -8px rgba(0,0,0,0.4);
+}
+.showcase-thumb img {
+  width: 76%; height: 88%; object-fit: contain;
+  pointer-events: none;
+}
+.showcase-thumb-dot {
+  position: absolute; bottom: -9px; left: 50%;
+  width: 4px; height: 4px;
+  background: var(--black); border-radius: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.showcase-thumb.is-active .showcase-thumb-dot { opacity: 0.75; }
+.showcase-thumb-label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.showcase-thumb-label::after {
+  content: "";
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--black);
+}
+.showcase-thumb:hover .showcase-thumb-label { opacity: 1; transform: translate(-50%, -14px); }
+
+/* ---------------------------------------------------------------------
+   CENTER — THE STAGE (crossfading large product image)
+   --------------------------------------------------------------------- */
+.showcase-stage {
+  grid-area: stage;
+  position: relative;
+  height: 640px;
+  display: flex; align-items: center; justify-content: center;
+  will-change: transform;
+}
+.showcase-stage::before {
+  content: "";
+  position: absolute; inset: 6%;
+  background: radial-gradient(circle, var(--ink-05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.showcase-stage-img {
+  position: absolute;
+  max-height: 700px; max-width:max-content;
+  object-fit: contain;
+  filter: drop-shadow(0 45px 80px var(--ink-25));
+  will-change: transform, opacity, filter;
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------------------
+   RIGHT — PRODUCT INFO
+   --------------------------------------------------------------------- */
+.showcase-info-parallax { grid-area: info; position: relative; will-change: transform; }
+.showcase-info { position: relative; }
+.showcase-info-tag {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-55); margin-bottom: 20px;
+}
+.showcase-info h2 {
+  color: var(--black);
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.showcase-info h2 .sc-char { display: inline-block; will-change: transform, opacity; }
+
+.showcase-tagline { color: var(--ink-55); font-size: 0.98rem; line-height: 1.75; margin-bottom: 28px; max-width: 400px; }
+
+.showcase-features { list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.showcase-features li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.9rem; color: var(--ink-55);
+}
+.showcase-features li::before {
+  content: ""; width: 6px; height: 6px; flex-shrink: 0;
+  border-radius: 50%; background: var(--black);
+}
+
+/* Glassmorphism CTA — same frosted-glass mechanic as the spec, flipped
+   to dark-on-light glass so it reads on this section's white background */
+.showcase-cta {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 32px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s var(--ease-lux);
+}
+.showcase-cta span.arrow { transition: transform 0.4s var(--ease-lux); }
+.showcase-cta:hover {
+  background: rgba(0,0,0,0.09);
+  border-color: rgba(0,0,0,0.35);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  transform: translateY(-3px) scale(1.02);
+}
+.showcase-cta:hover span.arrow { transform: translateX(6px); }
+
+/* ---------------------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .showcase-inner { grid-template-columns: 1fr 360px; gap: 28px; }
+  .showcase-stage { height: 520px; }
+  .showcase-stage-img { max-height: 480px; }
+}
+
+/* Tablet: stage full width, info below. No pin. Dock still floats at the
+   section's bottom edge — extra padding-bottom below reserves room for it
+   so it never overlaps the info text above it. */
+@media (max-width: 1024px) {
+  .showcase { min-height: 0; }
+  .showcase-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "stage" "info";
+    height: auto;
+    row-gap: 56px;
+    padding: 120px clamp(24px, 5vw, 64px) 130px;
+  }
+  .showcase-stage { height: 440px; }
+  .showcase-stage-img { max-height: 400px; }
+  .showcase-progress { display: none; }
+  .showcase-dock { bottom: 28px; }
+}
+
+/* Mobile: dock becomes a horizontally scrollable strip if it can't fit */
+@media (max-width: 640px) {
+  .showcase-inner {
+    padding: 96px 24px 120px;
+    row-gap: 36px;
+  }
+  .showcase-stage { height: 320px; }
+  .showcase-stage-img { max-height: 300px; }
+  .showcase-info-tag { text-align: center; }
+  .showcase-info h2 { text-align: center; }
+  .showcase-tagline { margin-left: auto; margin-right: auto; text-align: center; }
+  .showcase-features { align-items: center; }
+  .showcase-features li { justify-content: center; }
+  .showcase-cta { width: 100%; justify-content: center; }
+  .showcase-dock {
+    bottom: 20px;
+    max-width: calc(100vw - 24px);
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 10px;
+    padding: 8px 12px 10px;
+  }
+  .showcase-dock::-webkit-scrollbar { display: none; }
+  .showcase-thumb { width: 46px; height: 46px; }
+  .showcase-thumb-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-thumb, .showcase-cta { transition: none; }
+}

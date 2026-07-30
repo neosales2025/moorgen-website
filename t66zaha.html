@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T66 Zaha Hadid Collaboration — Moorgen x WIIKTO</title>
+  <meta name="description" content="Moorgen T66 — co-designed with the Zaha Hadid studio. Palm vein, facial recognition and Swedish FPC fingerprint sensing in a sculptural smart lock.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="smooth-scroll.js" defer></script>
+  <script src="main.js" defer></script>
+  <style>
+    /* Page-specific only: the T66 hero uses the real installed lifestyle
+       photo ("t66 pbg.png") as a true full-bleed background — edge to
+       edge of the screen, behind the whole section — same technique as
+       .story-pin's full-bleed breakout on index.html. The text column
+       and back-link are untouched; they simply sit on top of it. */
+    .product-hero.t66-photo-hero { position: relative; }
+    .t66-hero-bg {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 100vw;
+      transform: translateX(-50%);
+      z-index: 0;
+      overflow: hidden;
+    }
+    .t66-hero-bg img {
+      width: 100%; height: 100%;
+      max-width: none; max-height: none;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .product-hero.t66-photo-hero .back-link,
+    .product-hero.t66-photo-hero .product-hero-grid {
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 700px) {
+      /* A narrow, tall viewport shows a much thinner vertical slice of
+         this wide photo — centered crops out the lock almost entirely,
+         so shift left to keep the actual product in frame. */
+      .t66-hero-bg img { object-position: 20% center; }
+    }
+
+    /* -----------------------------------------------------------------
+       ZAHA HADID PROJECTS — smooth image showcase, page-specific only.
+       Full-bleed dark section: header, a large crossfading image stage
+       with project name/count overlay, dot navigation for that project's
+       own 3 photos, and a tab row to switch between the 5 projects.
+       ----------------------------------------------------------------- */
+    .zp-showcase {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      max-width: 100vw;
+      background: var(--black);
+      color: var(--white);
+      padding: 110px clamp(24px, 5vw, 64px) 70px;
+      border-top: 1px solid var(--ink-08);
+    }
+    .zp-header { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .zp-header h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.3rem); margin-top: 18px; }
+
+    .zp-stage {
+      position: relative;
+      max-width: var(--container);
+      margin: 0 auto;
+      aspect-ratio: 16 / 8;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .zp-stage-images { position: absolute; inset: 0; }
+    .zp-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      max-width: none; max-height: none;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s var(--ease-lux);
+    }
+    .zp-img.is-active { opacity: 1; }
+    .zp-stage-info {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 36px clamp(20px, 3vw, 44px);
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 85%);
+      pointer-events: none;
+    }
+    .zp-count {
+      font-family: var(--font-body);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      color: var(--snow-55); margin-bottom: 10px;
+    }
+    .zp-name { color: var(--white); font-size: clamp(1.2rem, 2.2vw, 1.7rem); }
+    .zp-dots {
+      position: absolute; right: clamp(20px, 3vw, 44px); bottom: 32px;
+      display: flex; gap: 9px;
+    }
+    .zp-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--snow-25);
+      border: none; padding: 0; cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .zp-dot.is-active { background: var(--white); transform: scale(1.2); }
+
+    .zp-tabs {
+      max-width: var(--container);
+      margin: 30px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      justify-content: center;
+    }
+    .zp-tab {
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
+      background: none; border: none; cursor: pointer;
+      padding: 8px 0;
+      color: var(--snow-40);
+      border-bottom: 1px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .zp-tab:hover { color: var(--snow-70); }
+    .zp-tab.is-active { color: var(--white); border-color: var(--white); }
+
+    @media (max-width: 900px) {
+      .zp-stage { aspect-ratio: 4 / 3; border-radius: 10px; }
+      .zp-tabs { gap: 8px 20px; }
+      .zp-tab { font-size: 0.72rem; }
+    }
+    @media (max-width: 560px) {
+      .zp-stage { aspect-ratio: 3 / 4; }
+      .zp-dots { bottom: 22px; right: 20px; }
+      .zp-stage-info { padding: 24px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .zp-img { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader"><div class="loader-mark"><span class="loader-word">moorgen</span><div class="loader-bar"></div></div></div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo-link"><img src="images/moorgen-logo.png" alt="Moorgen Logo" class="logo"></a>
+    <nav class="site-nav">
+      <a href="products.html">Products</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="installation-request.html">Installation</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </header>
+
+  <!-- ================= PRODUCT HERO ================= -->
+  <section class="product-hero t66-photo-hero">
+    <div class="t66-hero-bg">
+      <img src="images/t66 pbg.png" alt="Moorgen T66 Zaha Hadid Collaboration smart lock installed on a door">
+    </div>
+    <a href="products.html" class="back-link"><span class="arrow-back">&rarr;</span> All Locks</a>
+    <div class="product-hero-grid">
+      <div class="product-hero-media"></div>
+      <div class="product-hero-body">
+        <p class="eyebrow product-hero-tag">T66 &middot; Designer Edition</p>
+        <h1 data-split>T66 Zaha Hadid Collaboration Series</h1>
+        <p class="product-hero-desc" data-reveal="up">Artistic selections for high-end estates, exclusively for the art connoisseur.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 1: Ms. Zaha Hadid -->
+  <section class="feature-capsule reverse" data-reveal="left">
+    <div class="capsule-media"><img src="images/zhd.png" alt="Zaha Hadid portrait" loading="lazy"></div>
+    <div class="capsule-body">
+      <h3>Ms. Zaha Hadid</h3>
+      <p>Internationally renowned architect, master of deconstructivism, recipient of the Pritzker Architecture Prize, graduate of Harvard Graduate School of Design and holder of the Kenzo Tange Chair.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE 2: Zaha Hadid projects — smooth image showcase -->
+  <section class="zp-showcase" id="zpShowcase">
+    <div class="zp-header">
+      <p class="eyebrow center on-dark">Zaha Hadid Studio</p>
+      <h2>World Famous Projects Designed by Zaha Hadid</h2>
+    </div>
+
+    <div class="zp-stage">
+      <div class="zp-stage-images" id="zpStageImages"></div>
+      <div class="zp-stage-info">
+        <p class="zp-count" id="zpCount">01 / 05</p>
+        <h3 class="zp-name" id="zpName">Heydar Aliyev Centre</h3>
+      </div>
+      <div class="zp-dots" id="zpDots"></div>
+    </div>
+
+    <div class="zp-tabs" id="zpTabs"></div>
+  </section>
+
+  <!-- FEATURE 3: Symmetrical CNC design -->
+  <section class="feature-capsule reverse" data-reveal="right">
+    <div class="capsule-media"><img src="images/t66 side.png" alt="T66 symmetrical design" loading="lazy"></div>
+    <div class="capsule-body">
+      <h3>Symmetrical Aesthetic<br>Crafted with an Integrated Structure Using CNC Technology</h3>
+      <p>Designed to redefine modern security, the T66 smart lock combines precision CNC engineering with premium curved tempered glass. Its seamless symmetrical profile enhances both aesthetics and structural integrity, while the ergonomic finger-pinch protection provides a safer and more comfortable user experience.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE 4: Palm vein (dark, full-bleed) -->
+  <section class="feature-capsule on-dark reverse" data-reveal="zoom">
+    <div class="container-inner">
+      <div class="capsule-media"><img src="images/t66 palm.png" alt="Palm vein recognition" loading="lazy"></div>
+      <div class="capsule-body">
+        <h3>Transform Your Palm Vein into a Key</h3>
+        <p>Our smart lock utilizes cutting-edge palm vein recognition technology. With a simple swipe of your hand, the lock instantly identifies your unique palm vein pattern, granting access within one second.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 5: Facial recognition -->
+  <section class="feature-capsule" data-reveal="up">
+    <div class="capsule-media"><img src="images/t66 face .png" alt="Facial recognition unlocking" loading="lazy"></div>
+    <div class="capsule-body">
+      <h3>Unlock in 0.4 Seconds with Facial Recognition</h3>
+      <p>Employing dual-camera detection technology that mimics the human eye's visual principles, our system analyzes continuously captured images using AI biomimetic facial analysis. This allows for precise detection of live faces and counterfeit photos, achieving an accuracy rate of over 99.8%. Our new dual-camera technology offers the ultimate "face unlocking" experience.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE 6: Camera function -->
+  <section class="feature-capsule reverse" data-reveal="left">
+    <div class="capsule-media"><img src="images/t66 camera function.png" alt="T66 anti-disguise camera detection" loading="lazy"></div>
+    <div class="capsule-body">
+      <h3>Proven Performance Overcomes<br>Multiple Disguise Restrictions</h3>
+      <p>Precisely captures biometric and facial data points, effectively overcomes regional limitations, height constraints, and fingerprint degradation — with superior anti-glare interference capability compared to 3D structured light.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE 7: Camera function 2 -->
+  <section class="feature-capsule" data-reveal="right">
+    <div class="capsule-media"><img src="images/t66 camera function 2.png" alt="T66 sensor range for all ages" loading="lazy"></div>
+    <div class="capsule-body">
+      <h3>Adaptable Sensor Suitable for Individuals of All Ages</h3>
+      <p>Recognition range extends up to 80cm, covering the height range from children to the elderly, and even accommodating athletes' heights — eliminating the need for bending or tiptoeing.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE 8: Fingerprint sensor — exploded scroll-driven view -->
+  <section class="fp-explode" id="fpExplode">
+    <div class="fp-sticky">
+      <div class="fp-stage">
+        <img class="fp-layer fp-base"  src="images/t66-fp-base.png"  alt="">
+        <img class="fp-layer fp-ring1" src="images/t66-fp-ring1.png" alt="">
+        <img class="fp-layer fp-ring2" src="images/t66-fp-ring2.png" alt="">
+        <img class="fp-layer fp-lens"  src="images/t66-fp-lens.png"  alt="">
+        <img class="fp-layer fp-icon"  src="images/t66-fp-icon.png"  alt="">
+      </div>
+      <div class="fp-text">
+        <h3>Swedish FPC<br>Fingerprint Recognition</h3>
+        <p>We've abandoned traditional optical fingerprint technology and adopted the Swedish FPC fingerprint sensor, combined with AI intelligent learning chips. Experience an unexpectedly fast unlocking process — just grip the handle to open.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 9: App -->
+  <section class="feature-capsule reverse" data-reveal="up">
+    <div class="capsule-media"><img src="images/t66 app.png" alt="Moorgen self-developed app screens" loading="lazy"></div>
+    <div class="capsule-body">
+      <h3>A Self-Developed App</h3>
+      <p>Global compatibility, with your door lock as the focal point. Monitor indoors and outdoors in real time, unlock remotely, and stay informed about every activity at your door — anytime, anywhere.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE 10: Full specification sheet -->
+  <section class="feature-centered full-bleed" data-reveal="fade">
+    <img src="images/t66 details.png" alt="T66 specifications and details">
+  </section>
+
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">moorgen <em>&times;</em> wiikto</span>
+          <div class="footer-social-group">
+            <p class="footer-social-label">Follow us on</p>
+            <div class="footer-social">
+            <a href="https://www.facebook.com/share/1DtzUpLMfY/?mibextid=wwXIfr" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/moorgen_x_wiikto?igsh=cGJncml6ZGd2OGpv" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/in/moorgen-x-wiikto-india-3037223a9?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-ctas">
+          <a href="installation-request.html" class="btn btn-outline-dark is-small" data-magnetic>Request Installation <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          <p>WIIKTO INDIA LLP — Rev. Sur No. 160, Plot No. 16/B, Riddhi Siddhi Park, Kotharia, Rajkot, Gujarat 360022</p>
+          <p>info@wiiktoindia.in &middot; +91 98982 46692</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var section = document.getElementById('zpShowcase');
+      if (!section) return;
+
+      var PROJECTS = [
+        { name: 'Heydar Aliyev Centre', images: ['images/hac 1.jpg', 'images/hac 2.jpg', 'images/hac 3.jpg'] },
+        { name: 'Morpheus Hotel Macau', images: ['images/mmh 1.jpg', 'images/mmh 2.jpg', 'images/mmh 3.jpg'] },
+        { name: 'Beijing Daxing International Airport', images: ['images/bja 1.webp', 'images/bja 2.jpg', 'images/bja 3.jpg'] },
+        { name: 'Oneiric Catamaran Yacht', images: ['images/yt 1.jpg', 'images/yt 2.jpg', 'images/yt 3.jpg'] },
+        { name: 'Minera Table', images: ['images/mt 1.jpg', 'images/mt 2.jpg', 'images/mt 3.jpg'] }
+      ];
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var stageImagesEl = document.getElementById('zpStageImages');
+      var tabsEl = document.getElementById('zpTabs');
+      var dotsEl = document.getElementById('zpDots');
+      var countEl = document.getElementById('zpCount');
+      var nameEl = document.getElementById('zpName');
+
+      // Flatten all images into one stacked stage, tagging each with its
+      // project/photo index so we can crossfade purely via opacity.
+      var flat = [];
+      PROJECTS.forEach(function (p, pi) {
+        p.images.forEach(function (src, ii) {
+          var img = document.createElement('img');
+          img.className = 'zp-img';
+          img.src = src;
+          img.alt = p.name;
+          img.loading = pi === 0 && ii === 0 ? 'eager' : 'lazy';
+          stageImagesEl.appendChild(img);
+          flat.push({ el: img, project: pi, photo: ii });
+        });
+      });
+      flat[0].el.classList.add('is-active');
+
+      PROJECTS.forEach(function (p, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'zp-tab' + (i === 0 ? ' is-active' : '');
+        btn.textContent = p.name;
+        btn.addEventListener('click', function () { goTo(i, 0); });
+        tabsEl.appendChild(btn);
+      });
+      var tabEls = Array.prototype.slice.call(tabsEl.querySelectorAll('.zp-tab'));
+
+      function renderDots(projectIndex, photoIndex) {
+        dotsEl.innerHTML = '';
+        PROJECTS[projectIndex].images.forEach(function (_, i) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'zp-dot' + (i === photoIndex ? ' is-active' : '');
+          dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+          dot.addEventListener('click', function () { goTo(projectIndex, i); });
+          dotsEl.appendChild(dot);
+        });
+      }
+
+      var activeProject = 0, activePhoto = 0;
+
+      function goTo(projectIndex, photoIndex) {
+        if (projectIndex === activeProject && photoIndex === activePhoto) return;
+        flat.forEach(function (f) {
+          var shouldShow = f.project === projectIndex && f.photo === photoIndex;
+          f.el.classList.toggle('is-active', shouldShow);
+        });
+        if (projectIndex !== activeProject) {
+          tabEls.forEach(function (t, i) { t.classList.toggle('is-active', i === projectIndex); });
+          nameEl.textContent = PROJECTS[projectIndex].name;
+        }
+        countEl.textContent = String(projectIndex + 1).padStart(2, '0') + ' / ' + String(PROJECTS.length).padStart(2, '0');
+        renderDots(projectIndex, photoIndex);
+        activeProject = projectIndex;
+        activePhoto = photoIndex;
+      }
+
+      renderDots(0, 0);
+      countEl.textContent = '01 / ' + String(PROJECTS.length).padStart(2, '0');
+
+      // Auto-advance through the active project's own photos; switching
+      // tabs (goTo with a new project) resets this cycle at photo 0.
+      if (!reduceMotion) {
+        setInterval(function () {
+          var next = (activePhoto + 1) % PROJECTS[activeProject].images.length;
+          goTo(activeProject, next);
+        }, 4200);
+      }
+    })();
+  </script>
+
+</body>
+</html>

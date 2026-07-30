@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIIKTO India — Official Moorgen Smart Lock Partner</title>
+  <meta name="description" content="Moorgen smart locks — German-engineered biometric security, now in India exclusively through WIIKTO.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="smooth-scroll.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body class="home">
+
+  <!-- LUXURY LOADING SCREEN -->
+  <div id="loader"><div class="loader-mark"><span class="loader-word">moorgen</span><div class="loader-bar"></div></div></div>
+
+  <!-- GLASS / TRANSPARENT NAVIGATION (solidifies on scroll via main.js) -->
+  <header class="site-header on-dark">
+    <a href="index.html" class="logo-link">
+      <img src="images/moorgen-logo.png" alt="Moorgen Logo" class="logo">
+    </a>
+    <nav class="site-nav">
+      <a href="products.html">Products</a>
+      <a href="#about">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </header>
+
+  <!-- ================= CINEMATIC VIDEO HERO ================= -->
+  <section class="hero">
+    <video class="hero-video" id="heroVideo" src="videos/intro video.mp4" poster="images/index page.png" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <div class="hero-veil"></div>
+    <div class="hero-noise"></div>
+    <button class="hero-video-toggle" id="heroVideoToggle" aria-label="Pause background video" aria-pressed="false">
+      <span class="icon-pause"><span></span><span></span></span>
+      <span class="icon-play"></span>
+    </button>
+  </section>
+
+  <!-- ================= DESIGNER / AWARD MARQUEE ================= -->
+  <section class="marquee-wrap">
+    <div class="marquee-track" data-autoclone>
+      <span class="item">Zaha Hadid Architects</span><span class="dot">&#9670;</span>
+      <span class="item">Philippe Starck</span><span class="dot">&#9670;</span>
+      <span class="item">Yabu &amp; Pushelberg</span><span class="dot">&#9670;</span>
+      <span class="item">Chi Wing Lo</span><span class="dot">&#9670;</span>
+      <span class="item">Kengo Kuma</span><span class="dot">&#9670;</span>
+      <span class="item">Ma Yansong</span><span class="dot">&#9670;</span>
+      <span class="item">Tino Kwan</span><span class="dot">&#9670;</span>
+      <span class="item">Steve Leung</span><span class="dot">&#9670;</span>
+      <span class="item">Neri &amp; Hu</span><span class="dot">&#9670;</span>
+    </div>
+  </section>
+
+  <!-- ================= 01 — WHAT IS MOORGEN (sticky pinned image, text scrolls over it) ================= -->
+  <section id="about" class="story-pin">
+    <div class="story-pin-media">
+      <img src="images/about moorgen.png" alt="Moorgen architectural design sketch" loading="lazy">
+    </div>
+    <div class="story-pin-text">
+      <div class="story-pin-card" data-reveal="up">
+        <h2>What is Moorgen ?</h2>
+        <p class="editorial-text">
+           <strong>Moorgen</strong>, is a premium smart home brand dedicated to creating intelligent, secure, and luxurious living experiences. We offer advanced smart home solutions, including digital door locks, lighting control, automation, security, and whole-home intelligence, designed with cutting-edge technology and elegant craftsmanship.
+          <br><br>Our mission is to make everyday life smarter, safer, and more convenient through innovative products that combine reliability, modern design, and seamless automation.
+          <br><br><strong>Moorgen — where luxury meets intelligent living.</strong>
+        </p>
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 — WHO IS WIIKTO (sticky pinned image, text scrolls over it) ================= -->
+  <section class="story-pin reverse">
+    <div class="story-pin-media">
+      <img src="images/about wiikto.png" alt="WIIKTO India LLP office building architectural sketch" loading="lazy">
+    </div>
+    <div class="story-pin-text">
+      <div class="story-pin-card" data-reveal="up">
+        <h2>What is Wiikto ?</h2>
+        <p class="editorial-text">
+          <strong>WIIKTO INDIA LLP</strong> is the authorised all-India dealer for Moorgen Digital Locks. Based in Rajkot, we deliver premium digital door locks, smart access systems, and intelligent security products designed to deliver convenience, safety, and modern living.
+          <br><br>With a commitment to quality, advanced technology, and exceptional customer service, WIIKTO serves homeowners, businesses, builders, and channel partners across India. Our mission is to make every home and workplace smarter, more secure, and future-ready through reliable and innovative smart security solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COLLABORATION STATEMENT ================= -->
+  <section class="collab-statement" data-reveal="zoom">
+    <p class="eyebrow center">One Partnership</p>
+    <h2>Moorgen <strong>&times;</strong> Wiikto</h2>
+    <p class="editorial-text">
+      Together, <strong>Moorgen</strong> and <strong>Wiikto</strong> bring a pan-India digital lock solution — combining world-class German design and biometric security with local installation, service, and support across the country. One partnership, nationwide trust.
+    </p>
+    <a href="products.html" class="btn btn-ghost" data-magnetic>See the full lock collection <span class="arrow">&rarr;</span></a>
+  </section>
+
+  <!-- ================= 03 — WHY MOORGEN (stats + feature rows) ================= -->
+  <div class="container">
+    <section class="feature-rows-section">
+      <div class="feature-rows-head" data-reveal="up">
+        <p class="eyebrow center">03 — Why Moorgen</p>
+        <h2>Engineered for real security</h2>
+      </div>
+
+      <div class="stat-row" data-reveal-group>
+        <div class="stat-cell" data-reveal="up">
+          <div class="stat-num"><span data-counter-to="6">0</span></div>
+          <div class="stat-label">Ways to Unlock</div>
+        </div>
+        <div class="stat-cell" data-reveal="up">
+          <div class="stat-num"><span data-counter-to="30">0</span> Day</div>
+          <div class="stat-label">Free Rolling Cloud Storage</div>
+        </div>
+        <div class="stat-cell" data-reveal="up">
+          <div class="stat-num"><span data-counter-to="9">0</span></div>
+          <div class="stat-label">World-Class Design Collaborators</div>
+        </div>
+      </div>
+
+      <div class="feature-rows" data-reveal-group>
+        <div class="feature-row" data-reveal="fade">
+          <span class="feature-row-num">01</span>
+          <h3>Vein Recognition</h3>
+          <p>Military-grade fingervein and palm vein scanning — more secure than conventional fingerprint sensors.</p>
+        </div>
+        <div class="feature-row" data-reveal="fade">
+          <span class="feature-row-num">02</span>
+          <h3>Anti-Peeping Password</h3>
+          <p>Add random digits before or after your real password — the door still opens, but no one watching learns your code.</p>
+        </div>
+        <div class="feature-row" data-reveal="fade">
+          <span class="feature-row-num">03</span>
+          <h3>Up to 6 Ways to Unlock</h3>
+          <p>Face, palm vein, fingerprint, PIN, card, or app — choose whichever fits the moment.</p>
+        </div>
+        <div class="feature-row" data-reveal="fade">
+          <span class="feature-row-num">04</span>
+          <h3>Moorgen App</h3>
+          <p>Unlock remotely, grant access to family or guests, and switch between Home and Away modes from your phone.</p>
+        </div>
+        <div class="feature-row" data-reveal="fade">
+          <span class="feature-row-num">05</span>
+          <h3>CNC Craftsmanship</h3>
+          <p>Built with the same high-precision CNC technology used to produce flagship smartphones.</p>
+        </div>
+        <div class="feature-row" data-reveal="fade">
+          <span class="feature-row-num">06</span>
+          <h3>Lifetime Cloud Storage</h3>
+          <p>30-day activity records stored free, for life, through the Moorgen Life app.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">moorgen <em>&times;</em> wiikto</span>
+          <div class="footer-social-group">
+            <p class="footer-social-label">Follow us on</p>
+            <div class="footer-social">
+            <a href="https://www.facebook.com/share/1DtzUpLMfY/?mibextid=wwXIfr" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/moorgen_x_wiikto?igsh=cGJncml6ZGd2OGpv" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/in/moorgen-x-wiikto-india-3037223a9?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-ctas">
+          <a href="products.html" class="btn btn-outline-dark is-small" data-magnetic>Explore locks <span class="arrow">&rarr;</span></a>
+          <a href="installation-request.html" class="btn btn-outline-dark is-small" data-magnetic>Installation request <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          <p>WIIKTO INDIA LLP — Rev. Sur No. 160, Plot No. 16/B, Riddhi Siddhi Park, Kotharia, Rajkot, Gujarat 360022</p>
+          <p>info@wiiktoindia.in &middot; +91 98982 46692</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
