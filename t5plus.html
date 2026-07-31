@@ -19,6 +19,21 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    @media (max-width: 900px) {
+      /* At 1500px this image is far wider than any phone/tablet screen,
+         and even centered it still overflows ~550px on each side — on
+         mobile that overflow was enough to make the browser inflate its
+         whole layout viewport to fit it, which pushed the off-canvas nav
+         into view permanently and broke the hamburger toggle sitewide.
+         Below the tablet breakpoint, drop back to filling the section
+         width like every other .feature-centered image. */
+      .feature-centered img.office-mode-full {
+        max-width: 100%;
+        position: static;
+        left: auto;
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -29,8 +44,8 @@
     <a href="index.html" class="logo-link"><img src="images/moorgen-logo.png" alt="Moorgen Logo" class="logo"></a>
     <nav class="site-nav">
       <a href="products.html">Products</a>
-      <a href="index.html#about">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html#about">About Us</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
   </header>
