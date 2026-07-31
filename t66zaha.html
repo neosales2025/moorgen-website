@@ -39,11 +39,22 @@
       position: relative;
       z-index: 1;
     }
-    @media (max-width: 700px) {
-      /* A narrow, tall viewport shows a much thinner vertical slice of
-         this wide photo — centered crops out the lock almost entirely,
-         so shift left to keep the actual product in frame. */
-      .t66-hero-bg img { object-position: 20% center; }
+    /* Desktop only: this page's own floating cutout image stays hidden —
+       the full-bleed background above is the only image desktop shows.
+       visibility:hidden (not display:none) — .product-hero-media's own
+       height:800px is what gives the whole hero section its height, so
+       it needs to stay in layout, just invisible. */
+    .product-hero.t66-photo-hero .product-hero-media { visibility: hidden; }
+
+    @media (max-width: 900px) {
+      /* Below the tablet breakpoint, drop the full-bleed background
+         photo entirely and fall back to the exact same pattern every
+         other product page uses on mobile: plain white background, the
+         floating "t66 hero.png" cutout render, plain black text — no
+         overlay, no backdrop, nothing page-specific. Desktop (above
+         900px) is untouched by this block. */
+      .t66-hero-bg { display: none; }
+      .product-hero.t66-photo-hero .product-hero-media { visibility: visible; }
     }
 
     /* -----------------------------------------------------------------
@@ -149,8 +160,8 @@
     <a href="index.html" class="logo-link"><img src="images/moorgen-logo.png" alt="Moorgen Logo" class="logo"></a>
     <nav class="site-nav">
       <a href="products.html">Products</a>
-      <a href="index.html#about">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html#about">About Us</a>
+      <a href="contact.html">Contact Us</a>
       <a href="installation-request.html">Installation</a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
@@ -163,7 +174,9 @@
     </div>
     <a href="products.html" class="back-link"><span class="arrow-back">&rarr;</span> All Locks</a>
     <div class="product-hero-grid">
-      <div class="product-hero-media"></div>
+      <div class="product-hero-media">
+        <img src="images/t66 hero.png" alt="Moorgen T66 Zaha Hadid Collaboration smart lock">
+      </div>
       <div class="product-hero-body">
         <p class="eyebrow product-hero-tag">T66 &middot; Designer Edition</p>
         <h1 data-split>T66 Zaha Hadid Collaboration Series</h1>
