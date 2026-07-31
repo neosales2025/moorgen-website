@@ -1,4 +1,4 @@
-/* =====================================================================
+﻿/* =====================================================================
    MOORGEN x WIIKTO — LUXURY DESIGN SYSTEM
    Strict two-tone palette: #000000 / #FFFFFF only (opacity for depth).
    Typography: Manrope (display) + Inter (body).
@@ -441,6 +441,17 @@ body.home { background: var(--white); }
 
 @media (max-width: 640px) {
   .hero-video-toggle { bottom: 92px; }
+  /* The vignette's dark top/bottom bands are sized by percentage, so on
+     a much taller portrait screen they cover far more absolute pixel
+     height than on a wide desktop viewport — the video reads as mostly
+     black with only a thin lit strip in the middle. Lighten and
+     compress the bands so more of the video is actually visible;
+     desktop is untouched. */
+  .hero-veil {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.14) 18%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.68) 100%),
+      radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-video { animation: none; }
@@ -970,6 +981,13 @@ footer.site-footer {
      horizontally. Cap by width instead so nothing can exceed the column. */
   .capsule-media { max-width: 100%; }
   .capsule-media img { width: auto; height: auto; max-width: 100%; max-height: 420px; }
+  /* Center the text column once it stacks below the image on mobile —
+     left-aligned reads fine next to an image in the two-column desktop
+     layout, but looks lopsided sitting full-width under a centered
+     image on a phone. Applies across every product page that uses
+     .capsule-body; desktop (above 900px) is untouched. */
+  .capsule-body { text-align: center; }
+  .capsule-body p { margin-left: auto; margin-right: auto; }
 }
 
 /* -- centered showcase (colours / single hero image) -- */
