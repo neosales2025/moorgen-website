@@ -1,4 +1,4 @@
-﻿/* =====================================================================
+/* =====================================================================
    MOORGEN x WIIKTO — LUXURY DESIGN SYSTEM
    Strict two-tone palette: #000000 / #FFFFFF only (opacity for depth).
    Typography: Manrope (display) + Inter (body).
@@ -303,6 +303,18 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); backg
   opacity: 1; transform: translate(0,0) scale(1); filter: blur(0);
 }
 
+@media (max-width: 900px) {
+  /* [data-reveal="left"/"right"] sit at translateX(±64px) before their
+     entrance animation fires. Any section not yet scrolled into view
+     still carries that offset, and on mobile that reads as real
+     horizontal overflow — enough that some mobile browsers inflate the
+     whole layout viewport to fit it, which pushes the off-canvas nav
+     into view and can break the hamburger toggle. Desktop is unaffected
+     (this query only applies at tablet width and below); mobile just
+     gets the same vertical-fade motion as [data-reveal="up"] instead. */
+  [data-reveal="left"], [data-reveal="right"] { transform: translateY(40px); }
+}
+
 /* stagger children automatically when parent has [data-reveal-group] */
 [data-reveal-group] > * { transition-delay: calc(var(--stagger-i, 0) * 90ms); }
 
@@ -572,6 +584,14 @@ body.home { background: var(--white); }
   .story-pin-media { position: relative; height: 56vh; }
   .story-pin-text { position: relative; min-height: 0; display: block; padding: 48px 24px; pointer-events: auto; }
   .story-pin-card { max-width: 100%; background: var(--white); backdrop-filter: none; box-shadow: none; border: none; padding: 0; }
+  /* Both source photos are very wide (~1.75:1) with the actual subject
+     off-center — "about moorgen.png" sits at roughly 55-95% of the frame
+     width, "about wiikto.png" at roughly 3-30%. object-position:center
+     (moorgen's default) crops a window that mostly misses the subject on
+     a narrow mobile box; nudge each crop toward where its subject
+     actually is. Desktop keeps the original center/left values. */
+  #about .story-pin-media img { object-position: 80% center; }
+  .story-pin.reverse .story-pin-media img { object-position: 12% center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .story-pin-media { position: relative; height: 70vh; }
