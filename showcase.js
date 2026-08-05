@@ -42,7 +42,7 @@
       model: 'T5+', name: 'T5+ Smart Lock', tag: 'T5+ · Smart Lock',
       tagline: 'CNC-crafted elegance with genuine Swarovski detailing.',
       features: ['Genuine Swarovski Crystal', '4-Inch HD Visual Peephole', 'Virtual Password Protection', 'Ergonomic CNC Handle'],
-      thumb: 'images/lock_t5plus.png', image: 'images/T5 p.png', url: 't5plus.html'
+      thumb: 'images/lock_t5plus.png', image: 'images/t5 p.png', url: 't5plus.html'
     },
     {
       model: 'T50', name: 'T50 Smart Lock', tag: 'T50 · Smart Lock',
@@ -60,7 +60,7 @@
       model: 'T53s', name: 'T53s Smart Lock', tag: 'T53s · Smart Lock',
       tagline: 'Triple biometric precision, built to perform for decades.',
       features: ['Genuine Swarovski Crystal', '4-Inch HD Visual Peephole', 'Virtual Password Protection', 'Ergonomic CNC Handle'],
-      thumb: 'images/lock_t53s.png', image: 'images/T53 p.png', url: 't53s.html'
+      thumb: 'images/lock_t53s.png', image: 'images/t53 p.png', url: 't53s.html'
     },
     {
       model: 'F102', name: 'F102 Smart Lock', tag: 'F102 · Smart Lock',
