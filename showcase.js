@@ -26,7 +26,7 @@
          Add or remove a lock by editing this list only.
      ----------------------------------------------------------------- */
   var PRODUCTS = [
-    {
+  {
       model: 'T66', name: 'T66 Zaha Hadid', tag: 'T66 · Designer Edition',
       tagline: 'Co-designed with the Zaha Hadid studio — sculptural, uncompromising security.',
       features: ['Zaha Hadid Studio Collaboration', 'Palm Vein & Facial Recognition', 'Swedish FPC Fingerprint Sensor', 'CNC-Precision Tempered Glass'],
@@ -59,13 +59,13 @@
     {
       model: 'T53s', name: 'T53s Smart Lock', tag: 'T53s · Smart Lock',
       tagline: 'Triple biometric precision, built to perform for decades.',
-      features: ['Genuine Swarovski Crystal', '4-Inch HD Visual Peephole', 'Virtual Password Protection', 'Ergonomic CNC Handle'],
+      features: ['Quick Turn Handle Design', 'Visual Intercom for extra safty', 'Virtual Password Protection', 'An APP to unclock from anywhare'],
       thumb: 'images/lock_t53s thumb.jpg', image: 'images/t53 p.png', url: 't53s.html'
     },
     {
       model: 'F102', name: 'F102 Smart Lock', tag: 'F102 · Smart Lock',
       tagline: 'Three biometric layers, one seamless sweep.',
-      features: ['Dual Mode Office Access', 'IC Card Unlock', 'One-Grip Fingerprint Entry', 'Virtual Passcode Security'],
+      features: ['Dual Mode Access For Home & Office', 'IC Card Unlock', 'One-Grip Fingerprint Entry', 'Virtual Passcode Security'],
       thumb: 'images/lock_f102 thumb.jpg', image: 'images/f102 p.png', url: 'f102.html'
     },
     {
@@ -77,13 +77,13 @@
     {
       model: 'T23', name: 'T23 Lever Lock', tag: 'T23 · Lever Lock',
       tagline: 'Refined lever ergonomics, next-generation access intelligence.',
-      features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'Dual App Support'],
+      features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'APP to unclock from anywhare'],
       thumb: 'images/lock_t23lever thumb.jpg', image: 'images/t23 p.png', url: 't23.html'
     },
     {
       model: 'T17', name: 'T17 Lever Lock', tag: 'T17 · Lever Lock',
       tagline: 'Understated intelligence for everyday entry.',
-      features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'Dual App Support'],
+      features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'APP to unclock from anywharet'],
       thumb: 'images/lock_t17lever thumb.jpg', image: 'images/t17 p.png', url: 't17.html'
     }
   ];
