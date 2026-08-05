@@ -30,61 +30,61 @@
       model: 'T66', name: 'T66 Zaha Hadid', tag: 'T66 · Designer Edition',
       tagline: 'Co-designed with the Zaha Hadid studio — sculptural, uncompromising security.',
       features: ['Zaha Hadid Studio Collaboration', 'Palm Vein & Facial Recognition', 'Swedish FPC Fingerprint Sensor', 'CNC-Precision Tempered Glass'],
-      thumb: 'images/t66 cover.png', image: 'images/t66 p.png', url: 't66zaha.html'
+      thumb: 'images/t66 cover thumb.jpg', image: 'images/t66 p.png', url: 't66zaha.html'
     },
     {
       model: 'T9', name: 'T9 Smart Lock', tag: 'T9 · Smart Lock',
       tagline: 'Swarovski crystal craftsmanship meets military-grade fingervein recognition.',
       features: ['Genuine Swarovski Crystal', '3D Facial Recognition', 'Military-Grade Fingervein Scan', 'Inner & Outer Anti-Pinch Design'],
-      thumb: 'images/lock_t9.png', image: 'images/t9 p.png', url: 't9.html'
+      thumb: 'images/lock_t9 thumb.jpg', image: 'images/t9 p.png', url: 't9.html'
     },
     {
       model: 'T5+', name: 'T5+ Smart Lock', tag: 'T5+ · Smart Lock',
       tagline: 'CNC-crafted elegance with genuine Swarovski detailing.',
       features: ['Genuine Swarovski Crystal', '4-Inch HD Visual Peephole', 'Virtual Password Protection', 'Ergonomic CNC Handle'],
-      thumb: 'images/lock_t5plus.png', image: 'images/t5 p.png', url: 't5plus.html'
+      thumb: 'images/lock_t5plus thumb.jpg', image: 'images/t5 p.png', url: 't5plus.html'
     },
     {
       model: 'T50', name: 'T50 Smart Lock', tag: 'T50 · Smart Lock',
       tagline: 'Palm vein and Face ID, disappearing seamlessly into your door.',
       features: ['Military-Grade Fingervein Scan', '4-Inch HD Visual Peephole', 'Virtual Password Protection', 'Multi-Layer Alarm System'],
-      thumb: 'images/lock_t50.png', image: 'images/t50 p.png', url: 't50.html'
+      thumb: 'images/lock_t50 thumb.jpg', image: 'images/t50 p.png', url: 't50.html'
     },
     {
       model: 'T3+', name: 'T3+ Smart Lock', tag: 'T3+ · Smart Lock',
       tagline: 'Fingerprint-first security, simple and bulletproof.',
       features: ['Sweden FPC Fingerprint Sensor', '4-Inch Visual Intercom', 'IC Card & NFC Unlock', 'Hijacking Alarm'],
-      thumb: 'images/lock_t3plus.png', image: 'images/t3 p.png', url: 't3plus.html'
+      thumb: 'images/lock_t3plus thumb.jpg', image: 'images/t3 p.png', url: 't3plus.html'
     },
     {
       model: 'T53s', name: 'T53s Smart Lock', tag: 'T53s · Smart Lock',
       tagline: 'Triple biometric precision, built to perform for decades.',
       features: ['Genuine Swarovski Crystal', '4-Inch HD Visual Peephole', 'Virtual Password Protection', 'Ergonomic CNC Handle'],
-      thumb: 'images/lock_t53s.png', image: 'images/t53 p.png', url: 't53s.html'
+      thumb: 'images/lock_t53s thumb.jpg', image: 'images/t53 p.png', url: 't53s.html'
     },
     {
       model: 'F102', name: 'F102 Smart Lock', tag: 'F102 · Smart Lock',
       tagline: 'Three biometric layers, one seamless sweep.',
       features: ['Dual Mode Office Access', 'IC Card Unlock', 'One-Grip Fingerprint Entry', 'Virtual Passcode Security'],
-      thumb: 'images/lock_f102.png', image: 'images/f102 p.png', url: 'f102.html'
+      thumb: 'images/lock_f102 thumb.jpg', image: 'images/f102 p.png', url: 'f102.html'
     },
     {
       model: 'T2', name: 'T2 Lever Lock', tag: 'T2 · Lever Lock',
       tagline: 'A smart lever that adapts to your door, and your life.',
       features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'Anti-Peeping Passcode'],
-      thumb: 'images/lock_t2lever.png', image: 'images/t2 p.png', url: 't2.html'
+      thumb: 'images/lock_t2lever thumb.jpg', image: 'images/t2 p.png', url: 't2.html'
     },
     {
       model: 'T23', name: 'T23 Lever Lock', tag: 'T23 · Lever Lock',
       tagline: 'Refined lever ergonomics, next-generation access intelligence.',
       features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'Dual App Support'],
-      thumb: 'images/lock_t23lever.png', image: 'images/t23 p.png', url: 't23.html'
+      thumb: 'images/lock_t23lever thumb.jpg', image: 'images/t23 p.png', url: 't23.html'
     },
     {
       model: 'T17', name: 'T17 Lever Lock', tag: 'T17 · Lever Lock',
       tagline: 'Understated intelligence for everyday entry.',
       features: ['Swedish FPC Fingerprint Sensor', 'One-Grip Unlock', 'IC Card Access', 'Dual App Support'],
-      thumb: 'images/lock_t17lever.png', image: 'images/t17 p.png', url: 't17.html'
+      thumb: 'images/lock_t17lever thumb.jpg', image: 'images/t17 p.png', url: 't17.html'
     }
   ];
 
